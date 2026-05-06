@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <defs>
+    <radialGradient id="bg" cx="38%" cy="32%" r="72%">
+      <stop offset="0%" stop-color="#1c2e4a"/>
+      <stop offset="55%" stop-color="#0d1b2e"/>
+      <stop offset="100%" stop-color="#060e1a"/>
+    </radialGradient>
+    <linearGradient id="bracket" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+    <linearGradient id="box" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="192" height="192" rx="36" fill="url(#bg)"/>
+
+  <!-- Corner L-brackets -->
+  <path d="M 29 74 L 29 29 L 74 29"
+        stroke="url(#bracket)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M 163 74 L 163 29 L 118 29"
+        stroke="url(#bracket)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M 29 118 L 29 163 L 74 163"
+        stroke="url(#bracket)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M 163 118 L 163 163 L 118 163"
+        stroke="url(#bracket)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Detection bounding box -->
+  <rect x="56" y="56" width="80" height="80" rx="4"
+        fill="none" stroke="url(#box)" stroke-width="2"
+        stroke-dasharray="6 3" opacity="0.8"/>
+
+  <!-- Label tag -->
+  <rect x="56" y="45" width="32" height="11" rx="3" fill="url(#box)" opacity="0.92"/>
+  <text x="72" y="54" text-anchor="middle"
+        font-family="monospace" font-size="6" font-weight="700" fill="#062620">98%</text>
+
+  <!-- Inner target ring -->
+  <circle cx="96" cy="96" r="15"
+          fill="none" stroke="url(#bracket)" stroke-width="4" opacity="0.95"/>
+
+  <!-- Crosshair lines -->
+  <line x1="72" y1="96" x2="81" y2="96"
+        stroke="url(#bracket)" stroke-width="4" stroke-linecap="round"/>
+  <line x1="111" y1="96" x2="120" y2="96"
+        stroke="url(#bracket)" stroke-width="4" stroke-linecap="round"/>
+  <line x1="96" y1="72" x2="96" y2="81"
+        stroke="url(#bracket)" stroke-width="4" stroke-linecap="round"/>
+  <line x1="96" y1="111" x2="96" y2="120"
+        stroke="url(#bracket)" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Centre dot -->
+  <circle cx="96" cy="96" r="6" fill="url(#bracket)"/>
+  <circle cx="96" cy="96" r="2.5" fill="#060e1a"/>
+</svg>

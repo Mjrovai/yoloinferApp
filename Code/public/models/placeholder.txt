@@ -1,0 +1,1 @@
+Place your YOLOv8 ONNX model here (detection.onnx). Expected output: [1, 6, 756]
