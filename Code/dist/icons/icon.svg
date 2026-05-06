@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="bg" cx="38%" cy="32%" r="72%">
+      <stop offset="0%" stop-color="#1c2e4a"/>
+      <stop offset="55%" stop-color="#0d1b2e"/>
+      <stop offset="100%" stop-color="#060e1a"/>
+    </radialGradient>
+    <linearGradient id="bracket" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+    <linearGradient id="box" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+
+  <!-- Subtle inner glow -->
+  <rect width="512" height="512" rx="96" fill="none"
+        stroke="#38bdf8" stroke-width="2" opacity="0.12"/>
+
+  <!-- Corner L-brackets -->
+  <g filter="url(#glow)">
+    <path d="M 78 198 L 78 78 L 198 78"
+          stroke="url(#bracket)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M 434 198 L 434 78 L 314 78"
+          stroke="url(#bracket)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M 78 314 L 78 434 L 198 434"
+          stroke="url(#bracket)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M 434 314 L 434 434 L 314 434"
+          stroke="url(#bracket)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+
+  <!-- Detection bounding box (dashed) -->
+  <rect x="150" y="150" width="212" height="212" rx="8"
+        fill="none" stroke="url(#box)" stroke-width="3.5"
+        stroke-dasharray="14 7" opacity="0.75"/>
+
+  <!-- Detection label tag -->
+  <rect x="150" y="122" width="84" height="28" rx="6" fill="url(#box)" opacity="0.92"/>
+  <text x="192" y="141" text-anchor="middle"
+        font-family="'SF Mono', 'Fira Code', monospace"
+        font-size="14" font-weight="700" fill="#062620">98%</text>
+
+  <!-- Outer scan ring -->
+  <circle cx="256" cy="256" r="64"
+          fill="none" stroke="url(#bracket)" stroke-width="5" opacity="0.4"/>
+
+  <!-- Inner target ring -->
+  <circle cx="256" cy="256" r="38"
+          fill="none" stroke="url(#bracket)" stroke-width="9" opacity="0.95"/>
+
+  <!-- Crosshair lines -->
+  <line x1="194" y1="256" x2="218" y2="256"
+        stroke="url(#bracket)" stroke-width="9" stroke-linecap="round"/>
+  <line x1="294" y1="256" x2="318" y2="256"
+        stroke="url(#bracket)" stroke-width="9" stroke-linecap="round"/>
+  <line x1="256" y1="194" x2="256" y2="218"
+        stroke="url(#bracket)" stroke-width="9" stroke-linecap="round"/>
+  <line x1="256" y1="294" x2="256" y2="318"
+        stroke="url(#bracket)" stroke-width="9" stroke-linecap="round"/>
+
+  <!-- Centre dot -->
+  <circle cx="256" cy="256" r="16" fill="url(#bracket)" filter="url(#glow)"/>
+  <circle cx="256" cy="256" r="7"  fill="#060e1a"/>
+</svg>

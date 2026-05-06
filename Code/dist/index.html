@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <title>YOLOInfer</title>
+   <link rel="manifest" href="/manifest.json">
+   <meta name="theme-color" content="#0a0a0a">
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="apple-mobile-web-app-status-bar-style" content="black">
+   <meta name="apple-mobile-web-app-title" content="YOLOInfer">
+   <link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+   <link rel="icon" href="/icons/icon-192.png" sizes="192x192" type="image/png">
+   <link rel="apple-touch-icon" href="/icons/icon-192.png">
+   <script>document.documentElement.dataset.theme=localStorage.getItem('yoloinfer-theme')||'dark'</script>
+  <script type="module" crossorigin src="/assets/index-fNFaJCeC.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-B1AbBP8L.css">
+</head>
+<body>
+   <div id="app">
+     <header>
+       <h1>YOLOInfer</h1>
+       <p class="subtitle">YOLOv8n Mobile Inference</p>
+     </header>
+     <main>
+       <div id="viewport">
+         <video id="video" autoplay muted playsinline hidden></video>
+         <img id="static-img" alt="" hidden>
+         <canvas id="overlay"></canvas>
+         <div id="placeholder">
+           <span class="ph-icon">&#8853;</span>
+           <span>Start camera or upload image</span>
+         </div>
+         <div id="fps-badge" hidden>0 FPS</div>
+         <div id="model-badge" hidden>Detection</div>
+         <div id="loader" hidden>
+           <div class="spinner"></div>
+           <p id="loader-msg">Loading model...</p>
+         </div>
+          <div id="error-screen" hidden>
+            <p id="error-msg"></p>
+            <p class="error-hint">Tap the "Model" button, then select your .onnx file</p>
+            <button onclick="location.reload()">Retry</button>
+          </div>
+       </div>
+       <div id="controls">
+         <div id="controls-header">
+           <select id="model-select" class="ctrl-select">
+             <option value="detection">Detection</option>
+             <option value="pose">Pose Estimation</option>
+             <option value="segmentation">Segmentation</option>
+           </select>
+           <button id="btn-theme" type="button" aria-label="Toggle theme">☀</button>
+         </div>
+         <div id="btn-row">
+           <button id="btn-camera" disabled>Loading...</button>
+           <label id="btn-upload" class="disabled">
+             <span>Upload</span>
+             <input type="file" id="file-input" accept="image/*" hidden>
+           </label>
+            <button id="btn-model" type="button">
+              <span>Model</span>
+            </button>
+            <input type="file" id="model-input" accept=".onnx" class="file-pick-hidden">
+           <button id="btn-capture">Capture</button>
+         </div>
+         <div id="thresholds">
+           <div class="ctrl-row" id="bbox-toggle-row" hidden>
+             <span class="ctrl-label">Show Boxes</span>
+             <div class="slider-row">
+               <label class="toggle-switch">
+                 <input type="checkbox" id="bbox-toggle" checked>
+                 <span class="toggle-track"></span>
+               </label>
+             </div>
+           </div>
+           <div class="ctrl-row">
+             <span class="ctrl-label">Confidence</span>
+             <div class="slider-row">
+               <input type="range" id="conf-slider" min="0" max="100" value="35">
+               <span id="conf-val" class="ctrl-value">0.35</span>
+             </div>
+           </div>
+           <div class="ctrl-row">
+             <span class="ctrl-label">IoU Threshold</span>
+             <div class="slider-row">
+               <input type="range" id="iou-slider" min="0" max="95" value="45">
+               <span id="iou-val" class="ctrl-value">0.45</span>
+             </div>
+           </div>
+         </div>
+       </div>
+     </main>
+     <footer>Created by Marcelo Rovai @ May 2026</footer>
+   </div>
+</body>
+</html>
